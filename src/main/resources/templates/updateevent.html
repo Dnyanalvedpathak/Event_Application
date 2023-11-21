@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>BOOK</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+  <h1 class="text-center">UPDATE EVENT DETAILS</h1>
+  <form method="post" th:action="@{/updateeventdetails}" th:object="${updateEvent}">
+    <div class="mb-3">
+      <label>ENTER TICKET REF NO</label>
+      <input type="text" class="form-control" name="id" th:field="*{ticketRefNo}">
+      <p style="color:red" th:errors="*{ticketRefNo}"></p>
+    </div>
+    <div class="mb-3">
+      <label>ENTER EVENT NAME</label>
+      <input type="text" class="form-control" name="name" th:field="*{eventName}">
+      <p style="color:red" th:errors="*{eventName}"></p>
+    </div>
+    <div class="mb-3">
+      <label>SELECT EVENT TYPE</label>
+      <select th:field="*{eventType}">
+        <option th:each="eType:${eventType}" th:text="${eType}" th:value="${eType}"></option>
+      </select>
+      <p style="color:red" th:errors="*{eventType}"></p>
+    </div>
+    <div class="mb-3">
+      <label>ENTER EVENT DATE</label>
+      <input type="date" class="form-control" name="name" th:field="*{eventDate}">
+      <p style="color:red" th:errors="*{eventDate}"></p>
+    </div>
+    <div class="mb-3">
+      <label>ENTER AVAILABLE TICKETS</label>
+      <input type="text" class="form-control" name="name" th:field="*{availableTickets}">
+      <p style="color:red" th:errors="*{availableTickets}"></p>
+    </div>
+    <div class="mb-3">
+      <label>ENTER EVENT LOCATION</label>
+      <input type="text" class="form-control" name="name" th:field="*{eventLocation}">
+      <p style="color:red" th:errors="*{eventLocation}"></p>
+    </div>
+    <div class="mb-3">
+      <input type="submit" class="btn btn-success" value="UPDATE EVENT">
+    </div>
+  </form>
+</div>
+</body>
+</html>
